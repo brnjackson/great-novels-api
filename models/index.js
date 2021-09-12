@@ -4,7 +4,7 @@ const sqlNovels = require('./novels')
 const sqlGenres = require('./genres')
 const sqlNovelGenres = require('./novelGenres')
 
-const connection = new Sequelize('greatnovels', 'loves2Read', 'r3aDingRoCks!', {
+const connection = new Sequelize('greatnovels', 'love2Read', 'readingrocks!', {
   host: 'localhost',
   dialect: 'mysql'
 })
