@@ -1,6 +1,7 @@
 const express = require('express')
 const { serverSetup, displayAuthors, getAllByAuthorId } = require('./controllers/authors')
 const { displayGenres, getAllByGenreId } = require('./controllers/genres')
+const { displayAllAuthorsNovelsGenres, displayAuthorsGenresByNovelId } = require('./controllers/novels')
 
 const app = express()
 
@@ -19,6 +20,8 @@ app.get('/authors', displayAuthors)
 app.get('/authors/:id', getAllByAuthorId)
 app.get('/genres', displayGenres)
 app.get('/genres/:id', getAllByGenreId)
+app.get('/novels', displayAllAuthorsNovelsGenres)
+app.get('/novels/:id', displayAuthorsGenresByNovelId)
 
 app.listen(5000, () => {
   // eslint-disable-next-line no-console
