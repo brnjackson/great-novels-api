@@ -3,21 +3,21 @@
 module.exports = {
   up: async (queryInterface) => {
     await queryInterface.bulkInsert('authors', [
-      { id: 1, author: 'Bram Stoker' },
-      { id: 2, author: 'Oscar Wilde' },
-      { id: 3, author: 'Alice Walker' },
-      { id: 4, author: 'Leo Tolstoy' },
-      { id: 5, author: 'Charles Dickens' },
-      { id: 6, author: 'Arthur Miller' },
-      { id: 7, author: 'Alexandre Dumas' },
-      { id: 8, author: 'Arthur Conan Doyle' },
-      { id: 9, author: 'Robert Louis Stevenson' },
-      { id: 10, author: 'Fyodor Dostoyevsky' },
-      { id: 11, author: 'Agatha Christie' },
-      { id: 12, author: 'Ray Bradbury' },
-      { id: 13, author: 'George Orwell' },
-      { id: 14, author: 'H.G. Wells' },
-      { id: 15, author: 'Chinua Achebe' },
+      { id: 1, firstName: 'Bram', lastName: 'Stoker' },
+      { id: 2, firstName: 'Oscar', lastName: 'Wilde' },
+      { id: 3, firstName: 'Alice', lastName: 'Walker' },
+      { id: 4, firstName: 'Leo', lastName: 'Tolstoy' },
+      { id: 5, firstName: 'Charles', lastName: 'Dickens' },
+      { id: 6, firstName: 'Arthur', lastName: 'Miller' },
+      { id: 7, firstName: 'Alexandre', lastName: 'Dumas' },
+      { id: 8, firstName: 'Arthur Conan', lastName: 'Doyle' },
+      { id: 9, firstName: 'Robert Louis', lastName: 'Stevenson' },
+      { id: 10, firstName: 'Fyodor', lastName: 'Dostoyevsky' },
+      { id: 11, firstName: 'Agatha', lastName: 'Christie' },
+      { id: 12, firstName: 'Ray', lastName: 'Bradbury' },
+      { id: 13, firstName: 'George', lastName: 'Orwell' },
+      { id: 14, firstName: 'H.G.', lastName: 'Wells' },
+      { id: 15, firstName: 'Chinua', lastName: ' Achebe' }
     ])
 
     await queryInterface.bulkInsert('genres', [

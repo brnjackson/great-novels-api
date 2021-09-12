@@ -79,6 +79,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         reference: { model: 'authors', keu: 'id' }
       },
+      genreId: {
+        type: Sequelize.INTEGER,
+        reference: { model: 'genres', keu: 'id' }
+      },
       createdAt: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('NOW()')
