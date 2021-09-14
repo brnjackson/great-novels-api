@@ -9,20 +9,14 @@ app.use(express.json())
 
 app.get('/', serverSetup)
 
-// get all authors
 app.get('/authors', displayAuthors)
-
-// get author, novel and genre by author partial name
 app.get('/authors/:partialName', getAuthorPartialName)
-// get all genres
-app.get('/genres', displayGenres)
-// get list of all novels and their authors from one genre by genreid
-app.get('/genres/:id', getAllByGenreId)
-// get all novels with their authors and genres
-app.get('/novels', displayAllNovels)
-// get one novel with its author and genres by id
 
-app.get('novels/:partialTitle', getNovelByPartialTitle)
+app.get('/genres', displayGenres)
+app.get('/genres/:id', getAllByGenreId)
+
+app.get('/novels', displayAllNovels)
+app.get('/novels/:partialTitle', getNovelByPartialTitle)
 
 app.listen(5000, () => {
   // eslint-disable-next-line no-console

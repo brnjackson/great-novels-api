@@ -1,7 +1,11 @@
 const models = require('../models')
 
 const displayAllNovels = async (req, res) => {
-  const novels = await models.Novels.findAll()
+  const novels = await models.Novels.findAll({
+    include: [{
+      model: models.Authors
+    }, { model: models.Genres }]
+  })
 
   return res.send(novels)
 }
@@ -10,20 +14,23 @@ const getNovelByPartialTitle = async (req, res) => {
   try {
     const { partialTitle } = req.params
 
-    const novel = await models.Novels.findOne({
+    const oneNovel = await models.Authors.findOne({
       where: {
         [models.Op.or]: [
           { id: partialTitle },
-          { title: { [models.Op.like]: `%${partialTitle}%` } },
+          { lastName: { [models.Op.like]: `%${partialTitle}%` } },
         ],
       },
-      include: [{ model: models.Authors },
-        { model: models.Genres },
-      ]
+      include: [
+        {
+          model: models.Authors,
+          include: [{ model: models.Genres }],
+        },
+      ],
     })
 
-    return novel
-      ? res.send(novel)
+    return oneNovel
+      ? res.send(oneNovel)
       : res.sendStatus(404)
   } catch (error) {
     return res.status(500).send('No matches. Try again!')
