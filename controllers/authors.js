@@ -10,22 +10,6 @@ const displayAuthors = async (req, res) => {
   return res.send(authors)
 }
 
-const getAllByAuthorId = async (req, res) => {
-  const { id } = req.params
-
-  const oneAuthor = await models.Authors.findOne({
-    where: { id },
-    include: [{
-      model: models.Novels,
-      include: [{ model: models.Genres }]
-    }]
-  })
-
-  return oneAuthor
-    ? res.send(oneAuthor)
-    : res.sendStatus(404)
-}
-
 const getAuthorPartialName = async (req, res) => {
   try {
     const { partialName } = req.params
@@ -53,4 +37,4 @@ const getAuthorPartialName = async (req, res) => {
   }
 }
 
-module.exports = { serverSetup, displayAuthors, getAllByAuthorId, getAuthorPartialName }
+module.exports = { serverSetup, displayAuthors, getAuthorPartialName }
