@@ -1,7 +1,7 @@
 const models = require('../models')
 
-const displayAllAuthorsNovelsGenres = async (req, res) => {
-  const novels = models.Novels.findAll()
+const displayAllNovels = async (req, res) => {
+  const novels = await models.Novels.findAll()
 
   return res.send(novels)
 }
@@ -30,6 +30,8 @@ const getNovelByPartialTitle = async (req, res) => {
   }
 }
 
+
+
 // const getNovelPartialTitle = async (req, res) => {}
 
-module.exports = { displayAllAuthorsNovelsGenres, getNovelByPartialTitle }
+module.exports = { displayAllNovels, getNovelByPartialTitle }

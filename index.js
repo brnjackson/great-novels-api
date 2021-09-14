@@ -1,10 +1,7 @@
 const express = require('express')
 const { serverSetup, displayAuthors, getAuthorPartialName } = require('./controllers/authors')
 const { displayGenres, getAllByGenreId } = require('./controllers/genres')
-const {
-  displayAllAuthorsNovelsGenres,
-  getNovelByPartialTitle
-} = require('./controllers/novels')
+const { displayAllNovels, getNovelByPartialTitle } = require('./controllers/novels')
 
 const app = express()
 
@@ -22,7 +19,7 @@ app.get('/genres', displayGenres)
 // get list of all novels and their authors from one genre by genreid
 app.get('/genres/:id', getAllByGenreId)
 // get all novels with their authors and genres
-app.get('/novels', displayAllAuthorsNovelsGenres)
+app.get('/novels', displayAllNovels)
 // get one novel with its author and genres by id
 
 app.get('novels/:partialTitle', getNovelByPartialTitle)
