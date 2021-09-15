@@ -14,18 +14,16 @@ const getNovelByPartialTitle = async (req, res) => {
   try {
     const { partialTitle } = req.params
 
-    const oneNovel = await models.Authors.findOne({
+    const oneNovel = await models.Novels.findOne({
       where: {
         [models.Op.or]: [
           { id: partialTitle },
-          { lastName: { [models.Op.like]: `%${partialTitle}%` } },
+          { title: { [models.Op.like]: `%${partialTitle}%` } },
         ],
       },
       include: [
-        {
-          model: models.Authors,
-          include: [{ model: models.Genres }],
-        },
+        { model: models.Authors },
+        { model: models.Genres },
       ],
     })
 
